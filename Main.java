@@ -3,16 +3,14 @@ import java.util.List;
 
 public class Main {
 	public static void main(String[] args) {
-
-		Integer someNumber = 20;
-		String someString = "Hello Hello";
-		String stringCompareTo = "Hello Hello? world";
+		Integer someNumber = 20; // проверочное поле для IsGOOD
+		String someString = "Hello Hello"; // проверочное поле для IsGOOD
+		String stringCompareTo = "Hello Hello? world"; // проверочное поле для IsGOOD строка для сравнения
 
 		IsGood<Integer> evenIsGood = new IsEven<>(someNumber); // IsEven — ему дают целое число, он одобряет его, если оно чётное
 		IsGood<Integer> isPositiveIsGood = new IsPositive<>(someNumber); //IsPositive — ему дают целое число, он одобряет его, если оно положительное
 		IsGood<String> beginWithIsGood = new BeginsWith<>(someString, stringCompareTo); //BeginsWith — в конструкторе запоминает строку. Ему дают строку, он проверяет, что она начинается с того, что он запомнил
 		IsGood<String> beginWithA = new BeginsWithA<>(someString); //BeginsWithA — ему дают строку, он одобряет её, если она начинается с буквы A
-
 
 		System.out.println(isPositiveIsGood.isGood(someNumber)); // Проверка на положительное
 		System.out.println(evenIsGood.isGood(someNumber)); // Чет не чет
@@ -36,7 +34,6 @@ public class Main {
 		stringList.add("Af hh");
 		stringList.add("Qzhh hh");
 		stringList.add("AQz hhh");
-
 
 		System.out.println(filter(integerList, evenIsGood)); //Вызов фильтра для Integer чёт-нечёт
 		System.out.println(filter(integerList, isPositiveIsGood)); //Вызов фильтра для Integer положительный
